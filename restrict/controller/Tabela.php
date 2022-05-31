@@ -13,7 +13,7 @@ class Tabela
     Transaction::get();
     $material = new Crud("material");
     $resultado = $material->select();
-    $tabela = new Template("view/tabela.html");
+    $tabela = new Template("restrict/view/tabela.html");
     if (is_array($resultado)) {
       $tabela->set("linha", $resultado);
       $this->message = $tabela->saida();

@@ -10,7 +10,7 @@ class Form
   }
   public function controller()
   {
-    $form = new Template("view/form.html");
+    $form = new Template("restrict/view/form.html");
     $form->set("id", "");
     $form->set("nome", "");
     $form->set("quantidade", "");
@@ -49,7 +49,7 @@ class Form
         $material = new Crud('material');
         $resultado = $material->select("*", "id=$id");
         if (!$material->getError()) {
-          $form = new Template("view/form.html");
+          $form = new Template("restrict/view/form.html");
           foreach ($resultado[0] as $cod => $datahora) {
             $form->set($cod, $datahora);
           }
@@ -69,7 +69,7 @@ class Form
     if (is_string($this->error)) {
       return $this->message;
     } else {
-      $msg = new Template("view/msg.html");
+      $msg = new Template("shared/view/msg.html");
       if ($this->error) {
         $msg->set("cor", "danger");
       } else {
